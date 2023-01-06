@@ -16,12 +16,12 @@ export default async function handler(
   const userExists = await prisma.user.findUnique({
     where: {
       username,
-    }
+    },
   })
 
-  if(userExists) {
+  if (userExists) {
     return res.status(400).json({
-      message: 'Username já existe.'
+      message: 'Username já existe.',
     })
   }
 
@@ -33,8 +33,8 @@ export default async function handler(
   })
 
   setCookie({ res }, '@mycall:userId', user.id, {
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: '/',
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+    path: '/',
   })
 
   return res.status(201).json(user)
