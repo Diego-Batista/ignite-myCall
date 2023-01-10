@@ -43,11 +43,11 @@ export const AuthError = styled(Text, {
 })
 
 export const UserInfoContent = styled('div', {
-  display: 'flex', 
+  display: 'flex',
   alignItems: 'center',
-  gap: 15, 
+  gap: 15,
 
   img: {
-    borderRadius: '50%'
-  }
+    borderRadius: '50%',
+  },
 })

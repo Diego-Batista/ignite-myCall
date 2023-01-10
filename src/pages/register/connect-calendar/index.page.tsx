@@ -3,7 +3,14 @@ import { signIn, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ArrowRight, Check } from 'phosphor-react'
-import { AuthError, ConnectBox, ConnectItem, Container, Header, UserInfoContent } from './styles'
+import {
+  AuthError,
+  ConnectBox,
+  ConnectItem,
+  Container,
+  Header,
+  UserInfoContent,
+} from './styles'
 
 export default function Register() {
   const session = useSession()
