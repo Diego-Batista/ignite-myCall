@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Button,
   Heading,
   MultiStep,
@@ -16,9 +17,11 @@ import { useSession } from 'next-auth/react'
 import { GetServerSideProps } from 'next'
 import { unstable_getServerSession } from 'next-auth'
 import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
+import { api } from '../../../lib/axios'
+import { useRouter } from 'next/router'
 
 const updateProfileSchema = z.object({
-  bio: z.string()
+  bio: z.string(),
 })
 
 type UpdateProfileData = z.infer<typeof updateProfileSchema>
@@ -32,9 +35,16 @@ export default function UpdateProfile() {
     resolver: zodResolver(updateProfileSchema),
   })
 
-  async function handleUpdateProfile(data: UpdateProfileData) {}
+  async function handleUpdateProfile(data: UpdateProfileData) {
+    await api.put('users/profile', {
+      bio: data.bio,
+    })
+
+    await router.push(`/schedule/${session.data?.user.username}`)
+  }
 
   const session = useSession()
+  const router = useRouter()
 
   return (
     <Container>
@@ -51,6 +61,10 @@ export default function UpdateProfile() {
       <ProfileBox as="form" onSubmit={handleSubmit(handleUpdateProfile)}>
         <label>
           <Text size="sm">Foto de perfil</Text>
+          <Avatar
+            src={session.data?.user.avatar_url}
+            alt={session.data?.user.name}
+          />
         </label>
 
         <label>
@@ -74,12 +88,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await unstable_getServerSession(
     req,
     res,
-    buildNextAuthOptions(req, res)
+    buildNextAuthOptions(req, res),
   )
 
   return {
     props: {
-      session
-    }
+      session,
+    },
   }
 }
