@@ -1,14 +1,14 @@
-import { Calendar } from '../../../../../components/Calendar'
+import { Calendar } from "../../../../../components/Calendar";
 import {
   Container,
   TimePicker,
   TimePickerHeader,
   TimePickerItem,
   TimePickerList,
-} from './styles'
+} from "./styles";
 
 export function CalendarStep() {
-  const isDateSelected = true
+  const isDateSelected = true;
 
   return (
     <Container isTimePickerOpen={isDateSelected}>
@@ -41,5 +41,5 @@ export function CalendarStep() {
         </TimePicker>
       )}
     </Container>
-  )
+  );
 }
