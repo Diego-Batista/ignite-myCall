@@ -1,4 +1,4 @@
-import { Box, styled, Text, TextInput } from "@ignite-ui/react";
+import { Box, styled, Text } from "@ignite-ui/react";
 
 export const ConfirmForm = styled(Box, {
   maxWidth: 540,
@@ -11,11 +11,6 @@ export const ConfirmForm = styled(Box, {
     display: "flex",
     flexDirection: "column",
     gap: "$2",
-
-    [`> ${TextInput}`]: {
-      display: "flex",
-      padding: "$6"
-    },
   },
 });
 
