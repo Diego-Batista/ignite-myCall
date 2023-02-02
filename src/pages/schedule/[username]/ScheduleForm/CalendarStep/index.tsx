@@ -8,7 +8,6 @@ import {
 } from "./styles";
 
 export function CalendarStep() {
-
   const isDateSelected = false;
 
   return (
