@@ -5,7 +5,6 @@ import {
   MultiStep,
   Text,
   TextArea,
-  TextInput,
 } from "@ignite-ui/react";
 import { Container, Header } from "../styles";
 import { ArrowRight } from "phosphor-react";
@@ -22,7 +21,6 @@ import { useRouter } from "next/router";
 
 const updateProfileSchema = z.object({
   bio: z.string(),
-  social: z.string(),
 });
 
 type UpdateProfileData = z.infer<typeof updateProfileSchema>;
@@ -39,7 +37,6 @@ export default function UpdateProfile() {
   async function handleUpdateProfile(data: UpdateProfileData) {
     await api.put("users/profile", {
       bio: data.bio,
-      social: data.social,
     });
 
     await router.push(`/schedule/${session.data?.user.username}`);
