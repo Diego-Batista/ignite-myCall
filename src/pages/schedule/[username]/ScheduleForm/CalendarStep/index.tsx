@@ -14,8 +14,10 @@ export function CalendarStep() {
 
   const isDateSelected = !!selectedDate;
 
-  const weekDay = selectedDate ? dayjs(selectedDate).format("dddd") : null
-  const describedDate = selectedDate ? dayjs(selectedDate).format("DD[ de ]MMMM") : null
+  const weekDay = selectedDate ? dayjs(selectedDate).format("dddd") : null;
+  const describedDate = selectedDate
+    ? dayjs(selectedDate).format("DD[ de ]MMMM")
+    : null;
 
   return (
     <Container isTimePickerOpen={isDateSelected}>
