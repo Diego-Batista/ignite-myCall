@@ -1,8 +1,8 @@
-import { Button, Heading, MultiStep, Text } from '@ignite-ui/react'
-import { signIn, useSession } from 'next-auth/react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { ArrowRight, Check } from 'phosphor-react'
+import { Button, Heading, MultiStep, Text } from "@ignite-ui/react";
+import { signIn, useSession } from "next-auth/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { ArrowRight, Check } from "phosphor-react";
 import {
   AuthError,
   ConnectBox,
@@ -10,21 +10,21 @@ import {
   Container,
   Header,
   UserInfoContent,
-} from './styles'
+} from "./styles";
 
 export default function ConnectCalendar() {
-  const session = useSession()
-  const router = useRouter()
+  const session = useSession();
+  const router = useRouter();
 
-  const hasAuthError = !!router.query.error
-  const isSignedIn = session.status === 'authenticated'
+  const hasAuthError = !!router.query.error;
+  const isSignedIn = session.status === "authenticated";
 
   async function handleConnectCalendar() {
-    await signIn('google')
+    await signIn("google");
   }
 
   async function handleNavigateToNextStep() {
-    await router.push(`/register/time-intervals`)
+    await router.push(`/register/time-intervals`);
   }
 
   return (
@@ -44,7 +44,7 @@ export default function ConnectCalendar() {
           {isSignedIn ? (
             <UserInfoContent>
               <Image
-                src={session.data?.user?.image || ''}
+                src={session.data?.user?.image || ""}
                 alt=""
                 width={40}
                 height={40}
@@ -92,5 +92,5 @@ export default function ConnectCalendar() {
         </Button>
       </ConnectBox>
     </Container>
-  )
+  );
 }
