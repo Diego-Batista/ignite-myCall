@@ -1,5 +1,4 @@
 import { Box, styled, Text } from "@ignite-ui/react";
-import MaskedInput from "react-text-mask";
 
 export const ConfirmForm = styled(Box, {
   maxWidth: 540,
@@ -64,27 +63,5 @@ export const InputPhoneContainer = styled("div", {
   "&:has(input:disabled)": {
     opacity: 0.5,
     cursor: "not-allowed",
-  },
-});
-
-export const InputPhone = styled(MaskedInput, {
-  fontFamily: "$default",
-  fontSize: "$sm",
-  color: "$white",
-  fontWeight: "$regular",
-  background: "transparent",
-  border: 0,
-  width: "100%",
-
-  "&:focus": {
-    outline: 0,
-  },
-
-  "&:disabled": {
-    cursor: "not-allowed",
-  },
-
-  "&:placeholder": {
-    color: "$gray400",
   },
 });
