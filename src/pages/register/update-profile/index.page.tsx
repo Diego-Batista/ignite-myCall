@@ -74,6 +74,7 @@ export default function UpdateProfile() {
           </FormAnnotation>
         </label>
         {/* <label>
+          <InstagramLogo size={32} />
           <TextInput {...register("social")} />
           <FormAnnotation size="sm">Link da sua rede Social.</FormAnnotation>
         </label> */}

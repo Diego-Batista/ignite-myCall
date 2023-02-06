@@ -10,7 +10,6 @@ interface ScheduleProps {
     name: string;
     bio: string;
     avatarUrl: string;
-    social: string;
   };
 }
 
@@ -22,8 +21,12 @@ export default function Schedule({ user }: ScheduleProps) {
         <Heading>{user.name}</Heading>
         <Text>{user.bio}</Text>
         {/* //TODO: Adicionar link para rede social */}
-        {/* <Link href={String(user.social)} target="_blank">
-          <Image src="/github.svg" alt="" width={30} height={30} />
+        {/* <Link
+          href={`https://www.instagram.com/${user.social}`}
+          target="_blank"
+          prefetch
+        >
+          <InstagramLogo size={32} />
         </Link> */}
       </UserHeader>
 
@@ -58,7 +61,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       user: {
         name: user.name,
         bio: user.bio,
-        social: user.social,
         avatarUrl: user.avatar_url,
       },
       revalidate: 60 * 60 * 24,

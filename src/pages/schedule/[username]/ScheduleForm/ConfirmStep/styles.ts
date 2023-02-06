@@ -1,4 +1,5 @@
 import { Box, styled, Text } from "@ignite-ui/react";
+import MaskedInput from "react-text-mask";
 
 export const ConfirmForm = styled(Box, {
   maxWidth: 540,
@@ -45,4 +46,45 @@ export const FormActions = styled("div", {
   justifyContent: "flex-end",
   gap: "$2",
   marginTop: "$2",
+});
+
+export const InputPhoneContainer = styled("div", {
+  backgroundColor: "$gray900",
+  padding: "$3 $4",
+  borderRadius: "$sm",
+  boxSizing: "border-box",
+  border: "2px solid $gray900",
+  display: "flex",
+  alignItems: "baseline",
+
+  "&:has(input:focus)": {
+    borderColor: "$ignite300",
+  },
+
+  "&:has(input:disabled)": {
+    opacity: 0.5,
+    cursor: "not-allowed",
+  },
+});
+
+export const InputPhone = styled(MaskedInput, {
+  fontFamily: "$default",
+  fontSize: "$sm",
+  color: "$white",
+  fontWeight: "$regular",
+  background: "transparent",
+  border: 0,
+  width: "100%",
+
+  "&:focus": {
+    outline: 0,
+  },
+
+  "&:disabled": {
+    cursor: "not-allowed",
+  },
+
+  "&:placeholder": {
+    color: "$gray400",
+  },
 });

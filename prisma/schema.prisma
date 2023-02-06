@@ -15,9 +15,6 @@ model User {
   email         String?   @unique
   avatar_url         String? 
   bio String? @db.Text
-  social String?
-  github String?
-  instagram String?
 
   created_at DateTime @default(now())
 
@@ -76,7 +73,6 @@ model Scheduling {
   date DateTime
   name String
   email String
-  phone String
   observations String?
   created_at DateTime @default(now())
 
