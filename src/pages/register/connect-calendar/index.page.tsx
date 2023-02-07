@@ -1,6 +1,5 @@
-import { Button, Heading, MultiStep, Text } from "@ignite-ui/react";
+import { Avatar, Button, Heading, MultiStep, Text } from "@ignite-ui/react";
 import { signIn, useSession } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { ArrowRight, Check } from "phosphor-react";
 import {
@@ -9,7 +8,6 @@ import {
   ConnectItem,
   Container,
   Header,
-  UserInfoContent,
 } from "./styles";
 import { NextSeo } from "next-seo";
 
@@ -45,15 +43,10 @@ export default function ConnectCalendar() {
         <ConnectBox>
           <ConnectItem>
             {isSignedIn ? (
-              <UserInfoContent>
-                <Image
-                  src={session.data?.user?.image || ""}
-                  alt=""
-                  width={40}
-                  height={40}
-                />
-                <Text>{session.data?.user?.name}</Text>
-              </UserInfoContent>
+              <Avatar
+                src={session.data?.user.avatar_url}
+                alt={session.data?.user.name}
+              />
             ) : (
               <Text>Google Calendar</Text>
             )}

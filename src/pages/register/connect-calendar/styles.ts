@@ -41,13 +41,3 @@ export const AuthError = styled(Text, {
   color: "#F75A68",
   marginBottom: "$2",
 });
-
-export const UserInfoContent = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  gap: 15,
-
-  img: {
-    borderRadius: "50%",
-  },
-});

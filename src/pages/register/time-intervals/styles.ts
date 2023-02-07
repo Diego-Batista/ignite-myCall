@@ -23,6 +23,10 @@ export const IntervalBox = styled(Box, {
   marginTop: "$6",
   display: "flex",
   flexDirection: "column",
+
+  "@media (max-width: 900px)": {
+    padding: "$4",
+  },
 });
 
 export const IntervalsContainer = styled("div", {
@@ -37,6 +41,10 @@ export const IntervalItem = styled("div", {
   justifyContent: "space-between",
   padding: "$3 $4",
 
+  "@media (max-width: 900px)": {
+    padding: "$3 $2",
+  },
+
   "& + &": {
     borderTop: "1px solid $gray600",
   },
@@ -46,6 +54,10 @@ export const IntervalDay = styled("div", {
   display: "flex",
   alignItems: "center",
   gap: "$3",
+
+  [`> ${Text}`]: {
+    fontSize: "$xs",
+  },
 });
 
 export const IntervalInputs = styled("div", {

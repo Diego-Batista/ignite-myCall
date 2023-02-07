@@ -45,6 +45,10 @@ export const FormActions = styled("div", {
   justifyContent: "flex-end",
   gap: "$2",
   marginTop: "$2",
+
+  "@media (max-width: 900px)": {
+    justifyContent: "space-between",
+  },
 });
 
 export const InputPhoneContainer = styled("div", {
